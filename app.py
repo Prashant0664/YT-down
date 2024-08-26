@@ -9,8 +9,8 @@ def summary_api():
     print(1111)
     url = request.args.get('url', '')
     video_id = url.split('=')[1]
-    summary = get_summary(get_transcript(video_id))
-    return summary, 200
+    # summary = get_summary(get_transcript(video_id))
+    return "summary", 200
 
 def get_transcript(video_id):
     print(video_id)
