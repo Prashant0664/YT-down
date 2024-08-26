@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 @app.get('/summary')
 def summary_api():
+    print(1111)
     url = request.args.get('url', '')
     video_id = url.split('=')[1]
     summary = get_summary(get_transcript(video_id))
@@ -18,6 +19,7 @@ def get_transcript(video_id):
     return transcript
 
 def get_summary(transcript):
+    print(1111345425)
     summariser = pipeline('summarization')
     summary = ''
     for i in range(0, (len(transcript)//1000)+1):
