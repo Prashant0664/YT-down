@@ -6,10 +6,10 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-# import dotenv
+import dotenv
 
 # Load environment variables
-# dotenv.load_dotenv()
+dotenv.load_dotenv()
 
 app = Flask(__name__)
 
