@@ -6,23 +6,23 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-from dotenv import load_dotenv
-load_dotenv()
+import dotenv
 
+# Load environment variables
+dotenv.load_dotenv()
 app = Flask(__name__)
-
+# print(os.environ.get('CLOUDINARY_CLOUD_NAME', '/home/username/'))
 # Allow CORS from frontend (localhost:3001 in this case)
 CORS(app, origins=["http://localhost:3001"])
-
+print("CLOUDINARY_API_SECRET:", os.getenv('CLOUDINARY_CLOUD_NAME'))
 DOWNLOAD_PATH = 'Downloads'  # Local folder to save the videos
-
+print("__",os.environ.get('CLOUDINARY_CLOUD_NAME'),"__")
 # Configure Cloudinary using your credentials
 cloudinary.config(
     cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
     api_key=os.environ.get('CLOUDINARY_API_KEY'),
     api_secret=os.environ.get('CLOUDINARY_API_SECRET')
 )
-print(os.environ.get('CLOUDINARY_API_KEY2'))
 print("cloudinary configured;;;;;;;")
 
 # Ensure the Downloads folder exists
