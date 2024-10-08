@@ -15,10 +15,12 @@ def download(link):
     yt = youtubeObject.streams.get_highest_resolution()
     try:
         # Download the video to the Downloads folder
+        print("start video in downloadded;;;;;;;")
         video_path = yt.download(DOWNLOAD_FOLDER)
+        print("video in downloadded;;;;;;;")
         return video_path  # Return the path of the downloaded video
     except Exception as e:
-        print(f"An error has occurred: {e}")
+        print(f"custom2 An error has occurred;;;;;;;: {e}")
         return None
 
 @app.get('/summary')
@@ -26,17 +28,18 @@ def download_video():
     url = request.args.get('url', '')
     if not url:
         return jsonify({"error": "No URL provided"}), 400
-
+    print("downloaded initialted;;;;;;;")
     video_path = download(url)
-
+    print("video_path downloaded;;;;;;;", video_path)
     if not video_path:
         return jsonify({"error": "Failed to download video"}), 500
 
     try:
         # Send the downloaded file to the client
+        print("video sending...")
         return send_file(video_path, as_attachment=True)
     except Exception as e:
-        print(f"An error occurred while sending the file: {e}")
+        print(f"An custom1 error occurred while sending the file;;;;;;;: {e}")
         return jsonify({"error": "Error sending file"}), 500
 
 if __name__ == '__main__':
