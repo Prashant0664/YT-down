@@ -9,7 +9,6 @@ import cloudinary.api
 from dotenv import load_dotenv
 load_dotenv()
 
-print(os.environ.get('CLOUDINARY_API_KEY2'))
 app = Flask(__name__)
 
 # Allow CORS from frontend (localhost:3001 in this case)
@@ -23,6 +22,7 @@ cloudinary.config(
     api_key=os.environ.get('CLOUDINARY_API_KEY'),
     api_secret=os.environ.get('CLOUDINARY_API_SECRET')
 )
+print(os.environ.get('CLOUDINARY_API_KEY2'))
 print("cloudinary configured;;;;;;;")
 
 # Ensure the Downloads folder exists
