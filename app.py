@@ -5,6 +5,7 @@ import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+
 # import dotenv
 
 # Load environment variables
@@ -29,6 +30,7 @@ print("cloudinary configured;;;;;;;")
 if not os.path.exists(DOWNLOAD_PATH):
     os.makedirs(DOWNLOAD_PATH)
 
+
 def download_video(link):
     """
     Downloads the YouTube video and returns the local file path.
@@ -41,6 +43,7 @@ def download_video(link):
     except Exception as e:
         print(f"An error occurred while downloading: {e}")
         return None
+
 
 def upload_to_cloudinary(file_path):
     """
@@ -56,12 +59,13 @@ def upload_to_cloudinary(file_path):
         print(f"An error occurred while uploading to Cloudinary: {e}")
         return None
 
+
 @app.get('/summary')
 def summary_api():
     print("API HITTED")
     # return jsonify({"cloudinary_url": "HIIII"}), 200
     url = request.args.get('url', '')
-    
+
     if not url:
         return jsonify({"error": "No URL provided."}), 400
 
@@ -81,6 +85,7 @@ def summary_api():
     os.remove(file_path)
 
     return jsonify({"cloudinary_url": cloudinary_url}), 200
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000)
