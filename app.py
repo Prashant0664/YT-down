@@ -5,10 +5,10 @@ import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-import dotenv
+# import dotenv
 
 # Load environment variables
-dotenv.load_dotenv()
+# dotenv.load_dotenv()
 
 app = Flask(__name__)
 
@@ -19,9 +19,9 @@ DOWNLOAD_PATH = 'Downloads'  # Local folder to save the videos
 
 # Configure Cloudinary using your credentials
 cloudinary.config(
-    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
-    api_key=os.getenv('CLOUDINARY_API_KEY'),
-    api_secret=os.getenv('CLOUDINARY_API_SECRET')
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET')
 )
 print("cloudinary configured;;;;;;;")
 
