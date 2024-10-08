@@ -10,7 +10,7 @@ import dotenv
 
 # Load environment variables
 dotenv.load_dotenv()
-
+print(os.environ.get('CLOUDINARY_API_KEY2'))
 app = Flask(__name__)
 
 # Allow CORS from frontend (localhost:3001 in this case)
