@@ -6,10 +6,9 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-import dotenv
+from dotenv import load_dotenv
+load_dotenv()
 
-# Load environment variables
-dotenv.load_dotenv()
 print(os.environ.get('CLOUDINARY_API_KEY2'))
 app = Flask(__name__)
 
